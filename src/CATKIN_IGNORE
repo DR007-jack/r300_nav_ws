@@ -1,0 +1,13 @@
+This workspace contains a non-catkin (plain CMake) package in some environments
+(e.g. a `unitree_lidar_ros2` directory). `catkin_make` cannot build mixed
+workspaces unless using isolation.
+
+NOTE: Putting `CATKIN_IGNORE` directly in `src/` disables *all* packages in
+this workspace and is NOT what you want for normal use.
+
+Instead, add `CATKIN_IGNORE` to the specific non-catkin folder (for example a
+folder like `unitree_lidar_ros2/` if it exists in your checkout).
+
+Recommended build commands:
+- If you need everything (catkin + plain CMake packages): use `catkin_make_isolated`.
+- If you only need ROS1 packages: place `CATKIN_IGNORE` in the plain-CMake package folder.
